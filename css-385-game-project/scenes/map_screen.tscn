@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://djs8mfpoe1q02"]
+
+[ext_resource type="Script" uid="uid://b0h4apguekkvt" path="res://scripts/map_screen.gd" id="1_pbrhm"]
+
+[node name="MapScreen" type="Node2D"]
+script = ExtResource("1_pbrhm")
+
+[node name="Worldmap" type="Node" parent="."]
+
+[node name="Level 1" type="Button" parent="Worldmap"]
+offset_left = 337.0
+offset_top = 289.0
+offset_right = 439.0
+offset_bottom = 385.0
+theme_override_font_sizes/font_size = 64
+text = "1-1"
+
+[node name="Level 2" type="Button" parent="Worldmap"]
+offset_left = 657.0
+offset_top = 293.0
+offset_right = 759.0
+offset_bottom = 389.0
+theme_override_font_sizes/font_size = 64
+text = "1-2
+"
+
+[connection signal="pressed" from="Worldmap/Level 1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Worldmap/Level 2" to="." method="_on_level_2_pressed"]
