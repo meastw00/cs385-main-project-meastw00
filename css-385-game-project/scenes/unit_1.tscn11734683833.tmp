@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://dm224g3obw2sj"]
+
+[ext_resource type="Script" uid="uid://cjl1nnenoad2a" path="res://scripts/unit_script.gd" id="1_5a5x1"]
+[ext_resource type="Texture2D" uid="uid://bweo04irie8nj" path="res://icon.svg" id="2_ursm7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2yh2m"]
+radius = 16.0
+
+[node name="Unit1" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_5a5x1")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_ursm7")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2yh2m")
+
+[node name="Cooldown" type="Timer" parent="."]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+
+[node name="Update" type="Timer" parent="NavigationAgent2D"]
+autostart = true
+
+[node name="Sight" type="Area2D" parent="."]
+
+[node name="SightRange" type="CollisionShape2D" parent="Sight"]
+light_mask = 0
+visibility_layer = 0
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="AttackRange" type="CollisionShape2D" parent="Range"]
+light_mask = 0
+visibility_layer = 0
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="NavigationAgent2D/Update" to="." method="_on_update_timeout"]
