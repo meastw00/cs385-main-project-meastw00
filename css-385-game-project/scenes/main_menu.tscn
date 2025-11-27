@@ -1,0 +1,86 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc45nobb2ocu5"]
+
+[ext_resource type="Script" uid="uid://cg2no3vnauvy3" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+
+[node name="Main menu" type="Node2D"]
+script = ExtResource("1_l6cm7")
+
+[node name="Start menu" type="Node2D" parent="."]
+
+[node name="Title" type="Label" parent="Start menu"]
+offset_left = 89.0
+offset_top = 59.0
+offset_right = 1069.0
+offset_bottom = 191.0
+theme_override_font_sizes/font_size = 96
+text = "PLACEHOLDER NAME"
+
+[node name="StartButton" type="Button" parent="Start menu"]
+offset_left = 451.0
+offset_top = 349.0
+offset_right = 650.0
+offset_bottom = 445.0
+theme_override_font_sizes/font_size = 64
+text = "START"
+
+[node name="Save selection" type="Node2D" parent="."]
+visible = false
+
+[node name="Back" type="Button" parent="Save selection"]
+offset_left = 26.0
+offset_top = 24.0
+offset_right = 200.0
+offset_bottom = 120.0
+theme_override_font_sizes/font_size = 64
+text = "BACK"
+
+[node name="Save1" type="Label" parent="Save selection"]
+offset_left = 101.0
+offset_top = 149.0
+offset_right = 205.0
+offset_bottom = 194.0
+theme_override_font_sizes/font_size = 32
+text = "SAVE 1"
+
+[node name="Select" type="Button" parent="Save selection/Save1"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 44.0
+offset_right = 239.0
+offset_bottom = 400.0
+
+[node name="Save2" type="Label" parent="Save selection"]
+offset_left = 447.0
+offset_top = 150.0
+offset_right = 551.0
+offset_bottom = 195.0
+theme_override_font_sizes/font_size = 32
+text = "SAVE 2"
+
+[node name="Select" type="Button" parent="Save selection/Save2"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 44.0
+offset_right = 239.0
+offset_bottom = 400.0
+
+[node name="Save3" type="Label" parent="Save selection"]
+offset_left = 800.0
+offset_top = 152.0
+offset_right = 904.0
+offset_bottom = 197.0
+theme_override_font_sizes/font_size = 32
+text = "SAVE 3"
+
+[node name="Select" type="Button" parent="Save selection/Save3"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 44.0
+offset_right = 239.0
+offset_bottom = 400.0
+
+[connection signal="pressed" from="Start menu/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Save selection/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Save selection/Save1/Select" to="." method="_on_select_pressed"]
+[connection signal="pressed" from="Save selection/Save2/Select" to="." method="_on_select_pressed"]
+[connection signal="pressed" from="Save selection/Save3/Select" to="." method="_on_select_pressed"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3nkbijjp7h1e"]
+
+[ext_resource type="Script" uid="uid://cdl7gp8pnrcr4" path="res://scripts/select_unit.gd" id="1_oi50k"]
+
+[node name="UnitSelect" type="Node2D"]
+script = ExtResource("1_oi50k")
+
+[node name="Spawn 1" type="Button" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+text = "10"
+
+[node name="Spawn 2" type="Button" parent="."]
+offset_top = 48.0
+offset_right = 40.0
+offset_bottom = 88.0
+text = "20"
+
+[connection signal="pressed" from="Spawn 1" to="." method="_on_spawn_1_pressed"]
+[connection signal="pressed" from="Spawn 2" to="." method="_on_spawn_2_pressed"]

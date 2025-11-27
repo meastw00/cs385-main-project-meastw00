@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://oi2fodepavag"]
+
+[node name="Level2" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 115.0
+offset_top = 245.0
+offset_right = 1041.0
+offset_bottom = 377.0
+theme_override_font_sizes/font_size = 96
+text = "END OF PROTOTYPE"

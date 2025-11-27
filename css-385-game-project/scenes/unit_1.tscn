@@ -1,0 +1,212 @@
+[gd_scene load_steps=27 format=3 uid="uid://dm224g3obw2sj"]
+
+[ext_resource type="Script" uid="uid://cjl1nnenoad2a" path="res://scripts/unit_script.gd" id="1_5a5x1"]
+[ext_resource type="Texture2D" uid="uid://cob3voq1rfjep" path="res://assets/sprites/SwordsmanRed.png" id="2_w1r8b"]
+[ext_resource type="AudioStream" uid="uid://drb4cfbjtj21m" path="res://assets/sounds/hurt.wav" id="3_2yh2m"]
+[ext_resource type="Texture2D" uid="uid://dy6rne0eog03u" path="res://assets/sprites/SwordsmanCyan.png" id="3_uf40k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocbyw"]
+atlas = ExtResource("2_w1r8b")
+region = Rect2(0, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asbks"]
+atlas = ExtResource("2_w1r8b")
+region = Rect2(16, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onxqj"]
+atlas = ExtResource("2_w1r8b")
+region = Rect2(32, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuq6j"]
+atlas = ExtResource("2_w1r8b")
+region = Rect2(48, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq6a8"]
+atlas = ExtResource("2_w1r8b")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2koeq"]
+atlas = ExtResource("2_w1r8b")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldwxb"]
+atlas = ExtResource("2_w1r8b")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuf2v"]
+atlas = ExtResource("2_w1r8b")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5m36"]
+atlas = ExtResource("2_w1r8b")
+region = Rect2(64, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pl0nq"]
+atlas = ExtResource("3_uf40k")
+region = Rect2(0, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvirn"]
+atlas = ExtResource("3_uf40k")
+region = Rect2(16, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awnht"]
+atlas = ExtResource("3_uf40k")
+region = Rect2(32, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x62w8"]
+atlas = ExtResource("3_uf40k")
+region = Rect2(48, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct6mw"]
+atlas = ExtResource("3_uf40k")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4ch5"]
+atlas = ExtResource("3_uf40k")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1rfq"]
+atlas = ExtResource("3_uf40k")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3qas"]
+atlas = ExtResource("3_uf40k")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_em2tr"]
+atlas = ExtResource("3_uf40k")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l6d6k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocbyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asbks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onxqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuq6j")
+}],
+"loop": false,
+"name": &"Enemy_fight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vq6a8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2koeq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldwxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuf2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5m36")
+}],
+"loop": true,
+"name": &"Enemy_walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pl0nq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvirn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awnht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x62w8")
+}],
+"loop": false,
+"name": &"Player_fight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ct6mw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4ch5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1rfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3qas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_em2tr")
+}],
+"loop": true,
+"name": &"Player_walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_djwar"]
+size = Vector2(20, 28)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ursm7"]
+radius = 104.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w1r8b"]
+radius = 32.0
+
+[node name="Unit1" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_5a5x1")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -3.5762787e-07)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_l6d6k")
+animation = &"Enemy_walk"
+frame_progress = 0.29667783
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_djwar")
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Update" type="Timer" parent="NavigationAgent2D"]
+wait_time = 0.3
+autostart = true
+
+[node name="Sight" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="SightRange" type="CollisionShape2D" parent="Sight"]
+shape = SubResource("CircleShape2D_ursm7")
+
+[node name="Range" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="AttackRange" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_w1r8b")
+
+[node name="HurtSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_2yh2m")
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="NavigationAgent2D/Update" to="." method="_on_update_timeout"]
+[connection signal="body_entered" from="Sight" to="." method="_on_sight_body_entered"]
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
