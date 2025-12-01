@@ -8,3 +8,5 @@ located in the checkpoint 2 folder
 
 README for program 4 located in program 4 folder
 
+README for Checkpoint3 located in Checkpoint3 folder
+
