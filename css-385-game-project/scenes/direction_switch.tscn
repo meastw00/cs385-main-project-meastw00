@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://l22olmiucwcl"]
+
+[ext_resource type="Script" uid="uid://d17bs1gn0y8h5" path="res://scripts/direction_switch.gd" id="1_vegrq"]
+
+[node name="DirectionSwitch" type="Button"]
+offset_right = 64.0
+offset_bottom = 64.0
+text = "/\\
+|"
+script = ExtResource("1_vegrq")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
