@@ -13,7 +13,7 @@ func spawn_unit(type: int, money: int, team: bool, path: Node2D) -> int:
 		if money >= 10:
 			money -= 10
 			unit = unit_1.instantiate()
-			unit.health = 2
+			unit.health = 4
 			unit.attack = 1
 		else:
 			print("Not enough money")
@@ -22,8 +22,8 @@ func spawn_unit(type: int, money: int, team: bool, path: Node2D) -> int:
 		if money >= 20:
 			money -= 20
 			unit = unit_2.instantiate()
-			unit.health = 5
-			unit.attack = 2
+			unit.health = 2
+			unit.attack = 1
 		else:
 			print("Not enough money")
 			return money

@@ -154,14 +154,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_djwar"]
-size = Vector2(20, 28)
+[sub_resource type="CircleShape2D" id="CircleShape2D_uf40k"]
+radius = 14.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ursm7"]
-radius = 104.0
+radius = 128.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w1r8b"]
-radius = 32.0
+radius = 23.021729
 
 [node name="Unit1" type="CharacterBody2D"]
 collision_layer = 2
@@ -174,20 +174,23 @@ script = ExtResource("1_5a5x1")
 position = Vector2(0, -3.5762787e-07)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_l6d6k")
-animation = &"Enemy_walk"
-frame_progress = 0.29667783
+animation = &"Enemy_fight"
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_djwar")
+shape = SubResource("CircleShape2D_uf40k")
+
+[node name="Update" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
 
 [node name="Cooldown" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-
-[node name="Update" type="Timer" parent="NavigationAgent2D"]
-wait_time = 0.3
-autostart = true
+avoidance_enabled = true
+radius = 3.0
+avoidance_mask = 3
 
 [node name="Sight" type="Area2D" parent="."]
 collision_layer = 2
@@ -206,7 +209,8 @@ shape = SubResource("CircleShape2D_w1r8b")
 [node name="HurtSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_2yh2m")
 
-[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
-[connection signal="timeout" from="NavigationAgent2D/Update" to="." method="_on_update_timeout"]
+[connection signal="timeout" from="Update" to="." method="_on_update_timeout"]
 [connection signal="body_entered" from="Sight" to="." method="_on_sight_body_entered"]
+[connection signal="body_exited" from="Sight" to="." method="_on_sight_body_exited"]
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]

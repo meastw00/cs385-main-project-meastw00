@@ -6,7 +6,7 @@ extends Node2D
 func _ready() -> void:
 	var counter = 0
 	var levels = worldmap.get_children()
-	while Global.levels > counter:
+	while Global.levels > counter && Global.level_count > counter:
 		levels[counter].visible = true
 		counter += 1
 	while levels.size() > counter:

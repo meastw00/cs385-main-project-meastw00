@@ -1,14 +1,15 @@
 extends Node
 
-@onready var money_count: Label = $MoneyCount
+@onready var money_count: Label = $PlayerCamera/MoneyCount
 @onready var player_health: Label = $PlayerHealth
 @onready var enemy_health: Label = $EnemyHealth
 @onready var player_base: Area2D = $PlayerBase
 @onready var enemy_base: Area2D = $EnemyBase
 @onready var path_tree: Node2D = $PathTree
 @onready var music: AudioStreamPlayer2D = $Music
+@onready var unit_select: Node2D = $PlayerCamera/UnitSelect
 
-var player_money: int = 10
+var player_money: int = 20
 var enemy_money: int = 0
 var path_start: Node2D = null
 var path_end: Node2D = null
@@ -16,8 +17,9 @@ var path_end: Node2D = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	music.stream = preload("res://assets/music/Sketchbook 2024-08-21.ogg")
+	music.stream.loop = true
 	music.play()
-	$UnitSelect.spawn_unit.connect(_on_spawn_unit)
+	unit_select.spawn_unit.connect(_on_spawn_unit)
 	player_base.low_health.connect(_player_low_health)
 	player_base.team = true
 	enemy_base.team = false
@@ -34,18 +36,19 @@ func _process(delta: float) -> void:
 	enemy_health.text = "Health: " + str(enemy_base.health)
 
 func _on_spawn_unit(data):
-	player_money = $PSpawner.spawn_unit(data, player_money, true, path_end)
+	player_money = $PSpawner.spawn_unit(data, player_money, true, path_start)
 
 func _on_timer_timeout() -> void:
 	player_money += 1
 	enemy_money += 1
 	var rng = RandomNumberGenerator.new()
-	if enemy_money == 10 && (rng.randi_range(0, 1) == 1 || true):
-		enemy_money = $ESpawner.spawn_unit(1, enemy_money, false, path_start)
+	if enemy_money == 10 && (rng.randi_range(0, 1) == 1):
+		enemy_money = $ESpawner.spawn_unit(1, enemy_money, false, path_end)
 	elif enemy_money >= 20:
-		enemy_money = $ESpawner.spawn_unit(2, enemy_money, false, path_start)
+		enemy_money = $ESpawner.spawn_unit(2, enemy_money, false, path_end)
 	money_count.text = "Money: " + str(player_money)
 
 func _player_low_health() -> void:
 	music.stream = preload("res://assets/music/Sketchbook 2024-02-07.ogg")
+	music.stream.loop = true
 	music.play()
